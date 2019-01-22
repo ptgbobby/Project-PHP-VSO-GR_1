@@ -11,45 +11,43 @@ $si = $clubs + $hearts + $spades+ $diamonds;
 
 // Cycles
 for ($l=1; $l < 4; $l++) { 
-
-if ($i=$min && $i <= $clubs && $i++) {
-	break;
-
 for ($i=$min; $i <= $clubs; $i++) { 
 	$i++;
-	$i++;
+
+if ($i=$min && $i <= $clubs && $i++) {
 	echo $i;
+
 
 }
 }
-elseif ($k=$min && $k <= $hearts && $k++) {
-	break;
 
 for ($k=$min; $k <= $hearts; $k++) { 
 	$k++;
-	$k++;
-	echo $k;
+
+	if ($k=$min && $k <= $hearts && $k++) {
+		echo $k;
 }
 }
-elseif ($m=$min && $m <= $spades && $m++) {
-	break;
 
 for ($m=$min; $m <= $spades; $m++) { 
 	$m++;
-	$m++;
-	echo $m;
+
+	if ($m=$min && $m <= $spades && $m++) {
+
+		echo $m;
 }
 }
-elseif ($n=$min && $n <= $diamonds && $n++) {
-	break;
+
 
 for ($n=$min; $n <= $diamonds; $n++) { 
 	$n++;
-	$n++;
-	echo $n;
+
+	if ($n=$min && $n <= $diamonds && $n++) {
+		echo $n;
 }
-} else {
+else {
 	echo "<h1>Invalid deck of cards</h1>";
 }
-
 }
+}
+
