@@ -1,0 +1,63 @@
+<?php
+
+
+if (isset($_POST['submit'])) {
+
+	$name = $_POST['name'];
+	$subject = $_POST['subject'];
+	$mail_from = $_POST['mail_from'];
+	$message = $_POST['message'];
+
+	$mail_to = "support@vratsaplaces.eu";
+	$headers = "From: ". $mail_from;
+	$info = "You have an e-mail from ".$name.".\n\n".$message;
+
+	mail($mail_to, $subject, $info, $headers);
+	header("Location: contact.php?mailsend");
+	?>
+
+	<h2 class="1_mssg">Thank you! You are successful sent a message.</h2>
+
+
+	<?php
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- SLOJI CSS NA OTDELEN -->
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<title>Contact</title>
+</head>
+<body>
+	<header>
+
+		
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="project.php">My project</a></li>
+				<li><a href="code.php">Code of the project</a></li>
+				<li><a href="contact.php">Contact us</a></li>
+			</ul>
+		
+	
+	</header>
+
+	<content>
+		<!-- Това го искам вляво или както е по-хубаво-->
+		<div class="container">
+			<h1>Contact</h1>
+		<form action="index.php" method="post">
+			Your name:   <input type="text" name="name" placeholder="Enter your name"><br>
+			Your e-mail:    <input type="text" name="mail_from" placeholder="Enter your e-mail"><br>
+			Subject:    <input type="text" name="subject" placeholder="Enter your subject"><br>
+			Leave your message:    <textarea name="message" placeholder="Enter your message"></textarea><br>
+			<input type="submit" name="submit">
+		</form>
+	</div>
+	</content>
+</body>
+</html>
