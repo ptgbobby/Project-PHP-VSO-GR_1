@@ -1,12 +1,58 @@
 * {
-	background-color: lightblue;
+
+font-family: 'Baloo Thambi';
+	color: #000;
 }
 
 
-h1 {
-	margin-left: 41%;
-	color: #f00;
-	text-algin: center;
-	margin-top: 200px;
-	font-family: Comic Sans MS;
+main,h1 {
+	background-color: lightblue;
+font-family: 'Baloo Thambi';
+	margin-left: 10%;
+	color: #000;
+	text-align: center;
+	margin-top: 120px;
+	font-size: 60px;
+}
+
+
+ul {
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 8px;
+  position: center;
+}
+
+li {
+  float: left;
+    border-radius: 8px;
+ position: center;
+}
+
+li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+    border-radius: 8px;
+    position: center;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+    border-radius: 8px;
+}
+
+body {
+	background-color: lightblue;
+}
+
+input {
+	border-radius: 8px;
 }
