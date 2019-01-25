@@ -1,53 +1,119 @@
-<link rel="stylesheet" type="text/css" href="style.css">
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<title>Project</title>
+</head>
+<body>
+	<header>
+		
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="project.php">My project</a></li>
+				<li><a href="code.php">Code of the project</a></li>
+				<li><a href="contact.php">Contact us</a></li>
+			</ul>
+		
+	</header>
+	<main>
 <?php
-$all = 52;
-$min = 1;
-$clubs = array( "AC", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC" );
-$hearts = array("AH","2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "10H", "JH", "QH", "KH");
-$spades = array("AS", "2S", "3S", "4S", "5S", "6S","7S", "8S", "9S", "10S", "JS", "QS", "KS");
-$diamonds = array("AD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD");
-$si = $clubs + $hearts + $spades+ $diamonds;
-// End of Arrays
 
-// Cycles
-for ($l=1; $l < 4; $l++) { 
-for ($i=$min; $i <= $clubs; $i++) { 
-	$i++;
+function is_si_stebbins_deck($all_cards){
 
-if ($i=$min && $i <= $clubs && $i++) {
-	echo $i;
+    $deck_of_Cards = explode(" ", $all_cards);
+    $not_card_true = 1;
+    $no_power = null;
+    $no_suit = null;
 
 
+    for ($i = 0; $i < count($deck_of_Cards); $i++){
+
+
+        $card = $deck_of_Cards[$i];
+        $power = getPower($card);
+        $suit = substr($card, -1);
+
+
+        if ($i == 0){
+            $no_power = $power;
+            $no_suit = $suit;
+        }
+
+
+
+        if ($power != $no_power || strcmp($suit, $no_suit) != 1){
+            $not_card_true += $i;
+            break;
+        }
+
+
+        $no_power = getNextPower($power);
+        $no_suit = getNextSuit($suit);
+    }
+
+    echo $not_card_true;
 }
-}
-
-for ($k=$min; $k <= $hearts; $k++) { 
-	$k++;
-
-	if ($k=$min && $k <= $hearts && $k++) {
-		echo $k;
-}
-}
-
-for ($m=$min; $m <= $spades; $m++) { 
-	$m++;
-
-	if ($m=$min && $m <= $spades && $m++) {
-
-		echo $m;
-}
-}
 
 
-for ($n=$min; $n <= $diamonds; $n++) { 
-	$n++;
 
-	if ($n=$min && $n <= $diamonds && $n++) {
-		echo $n;
+function getPower($card){
+
+    $power = substr($card, 0, strlen($card) - 1);
+    switch ($power) {
+        case "A":
+            return 1;
+        case "J":
+            return 11;
+        case "Q":
+            return 12;
+        case "K":
+            return 13;
+        default:
+            return (int)$power;
+    }
 }
-else {
-	echo "<h1>Invalid deck of cards</h1>";
+
+
+
+function next_suit($suit){
+
+    switch ($suit) {
+        case "C":
+            return "H";
+        case "H":
+            return "S";
+        case "S":
+            return "D";
+        default:
+            return "C";
+    }
 }
+
+function next_power($power){
+
+    switch ($power) {
+        case "11":
+            return 1;
+        case "12":
+            return 2;
+        case "13":
+            return 3;
+        default:
+            return $power + 3;
+    }
 }
-}
+
+
+
+is_si_stebbins_deck("4S 7D 10C KH 2S 6D 9C QH 3S 5D");
+
+
+?>
+</main>
+</body>
+</html>
+
+
 
