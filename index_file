@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8">
+	<title>Project for VSC</title>
+</head>
+<body>
+	<header>
+		
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="project.php">My project</a></li>
+				<li><a href="code.php">Code of the project</a></li>
+				<li><a href="contact.php">Contact us</a></li>
+			</ul>
+		
+	</header>
+	<h1>Hello! I made a project. Check it.</h1>
+</body>
+</html>
