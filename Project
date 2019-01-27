@@ -8,14 +8,12 @@
 </head>
 <body>
 	<header>
-		
 			<ul>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="project.php">My project</a></li>
 				<li><a href="code.php">Code of the project</a></li>
 				<li><a href="contact.php">Contact us</a></li>
 			</ul>
-		
 	</header>
 	<main>
 <?php
@@ -26,6 +24,7 @@ function is_si_stebbins_deck($all_cards){
     $not_card_true = 1;
     $no_power = null;
     $no_suit = null;
+    $card = [];
 
 
     for ($i = 0; $i < count($deck_of_Cards); $i++){
@@ -63,13 +62,13 @@ function getPower($card){
     $power = substr($card, 0, strlen($card) - 1);
     switch ($power) {
         case "A":
-            return 1;
+            return 1;// А = 1
         case "J":
-            return 11;
+            return 11;//J = 11
         case "Q":
-            return 12;
+            return 12;//Q = 12
         case "K":
-            return 13;
+            return 13;//K = 13
         default:
             return (int)$power;
     }
@@ -114,6 +113,5 @@ is_si_stebbins_deck("4S 7D 10C KH 2S 6D 9C QH 3S 5D");
 </main>
 </body>
 </html>
-
 
 
